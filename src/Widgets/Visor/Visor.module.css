@@ -1,0 +1,33 @@
+
+.tela{
+  display:flex;
+  justify-content:center;
+}
+.visor{
+  display:flex;
+  justify-content:flex-start;
+  font-size:30px;
+  border:2px solid black;
+  width:400px;
+  height:50px;
+  gap:10px;
+
+}
+.primeiroNumero{
+  margin-left:10px;
+  align-self:center;
+
+}
+
+.operador{
+  align-self:center;
+
+}
+
+.segundoNumero{
+  align-self:center;
+
+}
+.resultado{
+  align-self:center;
+}

@@ -1,0 +1,27 @@
+.containerPai{
+  display:flex;
+  justify-content:center;
+}
+.containerFilho{
+  width:400px;
+  border:2px solid black;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+
+.primeiraFileira,.segundaFileira,.terceiraFileira,.quartaFileira{
+  align-self:flex-start;
+  display:flex;
+  gap:5px
+  
+}
+.botao{
+  width:50px;
+  height:50px;
+  border-radius:100%;
+
+    &:hover{
+      cursor:pointer;
+    }
+}

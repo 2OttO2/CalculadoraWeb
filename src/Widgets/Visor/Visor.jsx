@@ -1,6 +1,5 @@
 import styles from "./Visor.module.css";
 
-
 function Visor({primeiroNumero,operador,segundoNumero,resultado}){
 
   return(
@@ -8,10 +7,10 @@ function Visor({primeiroNumero,operador,segundoNumero,resultado}){
 
    <div className={styles.tela}>
       <p className={styles.visor}>
-        <span className={styles.primeiroNumero}> {primeiroNumero} </span>
+        <span className={styles.primeiroNumero}> {primeiroNumero.replace(".",",")} </span>
         <span className={styles.operador}> {operador} </span>
-        <span className={styles.segundoNumero}> {segundoNumero} </span>
-        <span className={styles.resultado}> = {resultado} </span>
+        <span className={styles.segundoNumero}> {segundoNumero.replace(".",",")} </span>
+        <span className={styles.resultado}> {resultado.replace(".",",")} </span>
       </p>
    </div>
 

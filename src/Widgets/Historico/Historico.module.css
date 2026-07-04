@@ -13,9 +13,9 @@
 
 }
 .botaoSlide{
-  position:absolute;
+  display:flex;
+  margin-right:37px;
   z-index:1;
-  left:130px;
   opacity:1 !important;
 }
 .fechado,.botaoSlide{

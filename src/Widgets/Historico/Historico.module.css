@@ -1,0 +1,34 @@
+.historico{
+
+  margin-top:30px;
+  width:200px;
+  height:300px;
+  border:2px solid black;
+  transition: opacity 0.35s ease, transform 1s ease;
+ 
+}
+.aberto{
+  transform:translateX(1px);
+  transition:opacity 0.35s ease, transform 1s ease;
+
+}
+.botaoSlide{
+  position:absolute;
+  z-index:1;
+  left:130px;
+  opacity:1 !important;
+}
+.fechado,.botaoSlide{
+  transform:translateX(250px);
+  transition: transform 0.25 ease;
+  opacity:0;
+}
+.titulo{
+  display:flex;
+  justify-content:center;
+  border-bottom:2px solid  black;
+}
+.numerosHistorico{
+  display:flex;
+  justify-content:center;
+}

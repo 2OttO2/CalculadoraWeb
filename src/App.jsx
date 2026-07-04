@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Visor from "./Widgets/Visor/Visor.jsx";
 import Botoes from "./Widgets/Botoes/Botoes.jsx";
+import Historico from "./Widgets/Historico/Historico.jsx";
 
 import './App.css'
 
@@ -10,6 +11,8 @@ const [primeiroNumero,setPrimeiroNumero] = useState("");
 const [operador,setOperador] = useState("");
 const [segundoNumero,setSegundoNumero] = useState("");
 const [resultado,setResultado] = useState("");
+const [historico,setHistorico] = useState([]);
+const [historicoAberto,setHistoricoAberto] = useState(true);
 
   function handleNumero(valor){
     if(resultado != ""){
@@ -54,63 +57,84 @@ const [resultado,setResultado] = useState("");
   function handleResultado(){
     const n1 = Number(primeiroNumero);
     const n2 = Number(segundoNumero);
+    let resultadoFinal;
 
+    
       switch(operador){
           
         case "+":
-        handleLimpar();
-        setResultado("RESULTADO = " + (n1 + n2));
+        resultadoFinal = n1 + n2;
         break;
         
         case "-":
-        handleLimpar();
-        setResultado("RESULTADO = " + (n1 - n2));
+        resultadoFinal = n1 - n2;
         break;
 
         case "/":
-        handleLimpar();
-        setResultado("RESULTADO = " + (n1 / n2));
+        resultadoFinal = n1 / n2;
         break;
         
         case "X":
-        handleLimpar();
-        setResultado("RESULTADO = " + (n1 / n2));
+        resultadoFinal = n1 * n2;
         break;
+
+        default:
+        return;
       }
+    handleLimpar();
+    setResultado(`RESULTADO = ${resultadoFinal}`);
+    setHistorico((prev) => [
+    ...prev,
+    `${n1} ${operador} ${n2} = ${resultadoFinal}`
+    ]);
   }
 
 
   return (
     <>
-      <Visor
-      primeiroNumero={primeiroNumero}
-      operador={operador}
-      segundoNumero={segundoNumero}
-      resultado={resultado}
 
+    <div className="container">
 
-      />
-      <Botoes
+        <Historico
+          historico={historico}
+          historicoAberto={historicoAberto}
+          setHistoricoAberto={setHistoricoAberto}
 
+        />
+      <div className="calculadora">
+
+        <Visor
         primeiroNumero={primeiroNumero}
-        setPrimeiroNumero={setPrimeiroNumero}
-
         operador={operador}
-        setOperador={setOperador}
-
         segundoNumero={segundoNumero}
-        setSegundoNumero={setSegundoNumero}
-
         resultado={resultado}
-        setResultado={setResultado}
 
-        handleNumero={handleNumero}
-        handleOperador={handleOperador}
-        handleLimpar={handleLimpar}
-        handleVirgula={handleVirgula}
-        handleResultado={handleResultado}
 
-      />
+        />
+        <Botoes
+
+          primeiroNumero={primeiroNumero}
+          setPrimeiroNumero={setPrimeiroNumero}
+
+          operador={operador}
+          setOperador={setOperador}
+
+          segundoNumero={segundoNumero}
+          setSegundoNumero={setSegundoNumero}
+
+          resultado={resultado}
+          setResultado={setResultado}
+
+          handleNumero={handleNumero}
+          handleOperador={handleOperador}
+          handleLimpar={handleLimpar}
+          handleVirgula={handleVirgula}
+          handleResultado={handleResultado}
+
+        />
+
+      </div>
+    </div>
 
     </>
   )

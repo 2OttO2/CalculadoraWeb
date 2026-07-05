@@ -20,8 +20,7 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
       <button onClick={() => handleNumero(2)} className={styles.botao} >2</button>
       <button onClick={() => handleNumero(3)} className={styles.botao} >3</button>
       <button onClick={() => handleOperador("+")} className={styles.botao} >+</button>
-      <button onClick={() => handleLimpar("C")} className={styles.botao} >C</button>
-
+     
     </div>
 
     <div className={styles.segundaFileira}>
@@ -46,8 +45,15 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
 
       <button onClick={() => handleNumero(0)} className={styles.botao} >0</button>
       <button onClick={() => handleVirgula(",")} className={styles.botao} >,</button>
-      <button onClick={() => handleResultado("=")} className={styles.botao} >=</button>
+      <button onClick={() => handleOperador("%")} className={styles.botao}>%</button>
       <button onClick={() => handleOperador("X")} className={styles.botao} >X</button>
+
+    </div>
+
+    <div className={styles.quintaFileira}>
+
+      <button onClick={() => handleLimpar("C")} className={styles.botao} >C</button>
+      <button onClick={() => handleResultado("=")} className={styles.botao} >=</button>
 
     </div>
 

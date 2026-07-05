@@ -72,6 +72,8 @@ const [historicoAberto,setHistoricoAberto] = useState(true);
             return n1 * n2;
         case "/":
             return n1 / n2;
+      case "%":
+        return (n1 * n2 ) / 100 ;
         default:
             return n1;
     }

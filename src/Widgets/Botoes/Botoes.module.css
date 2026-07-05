@@ -3,17 +3,20 @@
   justify-content:center;
 }
 .containerFilho{
-  width:400px;
+  width:225px;
   border:2px solid black;
   display:flex;
   flex-direction:column;
   gap:5px;
+  z-index:1;
 }
 
-.primeiraFileira,.segundaFileira,.terceiraFileira,.quartaFileira{
+.primeiraFileira,.segundaFileira,.terceiraFileira,.quartaFileira,.quintaFileira{
   align-self:flex-start;
   display:flex;
-  gap:5px
+  gap:5px;
+  margin:5px;
+  
   
 }
 .botao{
@@ -21,6 +24,18 @@
   height:50px;
   border-radius:100%;
 
+    &:hover{
+      cursor:pointer;
+    }
+}
+.quintaFileira{
+  gap:12px;
+}
+.botaoEspecial{
+  border:2px solid black;
+  width:100px;
+  height:50px;
+  
     &:hover{
       cursor:pointer;
     }

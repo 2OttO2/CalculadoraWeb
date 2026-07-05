@@ -49,6 +49,21 @@ const [historicoAberto,setHistoricoAberto] = useState(true);
     setSegundoNumero("");
     setResultado("");
   }
+  function apagarUltimo() {
+
+  if (segundoNumero !== "") {
+    setSegundoNumero(segundoNumero.slice(0, -1));
+
+  }else if (primeiroNumero === "" & segundoNumero === "" & operador === ""){
+      handleLimpar();
+
+  }else if (operador !== "") {
+   setOperador("");
+
+  }else {
+    setPrimeiroNumero(primeiroNumero.slice(0, -1));
+  }
+}
 
   function handleVirgula(){
     if(operador === ""){
@@ -115,6 +130,7 @@ const [historicoAberto,setHistoricoAberto] = useState(true);
         operador={operador}
         segundoNumero={segundoNumero}
         resultado={resultado}
+        apagarUltimo={apagarUltimo}
 
 
         />

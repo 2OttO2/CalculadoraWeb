@@ -6,7 +6,7 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
 
 
  
-  // seria interessante trocar os operadores por svg e talvez o numeros tbm
+  // seria interessante trocar os operadores por svg e talvez os numeros tbm
 
   return(
 
@@ -52,8 +52,8 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
 
     <div className={styles.quintaFileira}>
 
-      <button onClick={() => handleLimpar("C")} className={styles.botao} >C</button>
-      <button onClick={() => handleResultado("=")} className={styles.botao} >=</button>
+      <button onClick={() => handleLimpar("C")} className={styles.botaoEspecial} >C</button>
+      <button onClick={() => handleResultado("=")} className={styles.botaoEspecial} >=</button>
 
     </div>
 

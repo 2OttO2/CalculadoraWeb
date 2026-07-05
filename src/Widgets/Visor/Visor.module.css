@@ -8,7 +8,7 @@
   justify-content:flex-start;
   font-size:30px;
   border:2px solid black;
-  width:400px;
+  width:225px;
   height:50px;
   gap:10px;
 
@@ -30,4 +30,10 @@
 }
 .resultado{
   align-self:center;
+}
+.limpar{
+  display:flex;
+  position:relative;
+  left:220px;
+  bottom:67px;
 }

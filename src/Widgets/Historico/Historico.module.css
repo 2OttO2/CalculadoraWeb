@@ -5,24 +5,30 @@
   height:300px;
   border:2px solid black;
   transition: opacity 0.35s ease, transform 1s ease;
- 
+
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .aberto{
   transform:translateX(1px);
   transition:opacity 0.35s ease, transform 1s ease;
 
 }
-.botaoSlide{
-  display:flex;
-  margin-right:37px;
-  z-index:1;
-  opacity:1 !important;
-}
-.fechado,.botaoSlide{
+.fechado{
   transform:translateX(250px);
-  transition: transform 0.25 ease;
+  transition:opacity 0.35s ease, transform 1s ease;
   opacity:0;
 }
+.botaoSlideAberto{
+  transform:translateX(10px);
+  transition: transform 1s ease;
+}
+
+.botaoSlideFechado{
+  transform:translateX(220px);
+  transition:transform 1s ease;
+}
+
 .titulo{
   display:flex;
   justify-content:center;

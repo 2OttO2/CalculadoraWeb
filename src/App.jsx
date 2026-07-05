@@ -25,14 +25,22 @@ const [historicoAberto,setHistoricoAberto] = useState(true);
     }
   }
 
-  function handleOperador(op){
-    if(primeiroNumero === "") return;
+  function handleOperador(op) {
+  if (primeiroNumero === "") return;
 
-    if(segundoNumero === ""){
-      setOperador(op);
-      return;
-    } 
-    
+  if (segundoNumero === "") {
+    setOperador(op);
+    return;
+  }
+
+  const n1 = Number(primeiroNumero);
+  const n2 = Number(segundoNumero);
+
+  const parcial = calcular(n1, operador, n2);
+
+  setPrimeiroNumero(String(parcial));
+  setSegundoNumero("");
+  setOperador(op);
   }
 
   function handleLimpar(){
@@ -54,41 +62,38 @@ const [historicoAberto,setHistoricoAberto] = useState(true);
     }
   }
 
-  function handleResultado(){
-    const n1 = Number(primeiroNumero);
-    const n2 = Number(segundoNumero);
-    let resultadoFinal;
-
-    
-      switch(operador){
-          
+  function calcular(n1, op, n2) {
+    switch (op) {
         case "+":
-        resultadoFinal = n1 + n2;
-        break;
-        
+            return n1 + n2;
         case "-":
-        resultadoFinal = n1 - n2;
-        break;
-
-        case "/":
-        resultadoFinal = n1 / n2;
-        break;
-        
+            return n1 - n2;
         case "X":
-        resultadoFinal = n1 * n2;
-        break;
-
+            return n1 * n2;
+        case "/":
+            return n1 / n2;
         default:
-        return;
-      }
-    handleLimpar();
-    setResultado(`RESULTADO = ${resultadoFinal}`);
-    setHistorico((prev) => [
-    ...prev,
-    `${n1} ${operador} ${n2} = ${resultadoFinal}`
-    ]);
+            return n1;
+    }
   }
 
+  function handleResultado() {
+  if (primeiroNumero === "" || operador === "" || segundoNumero === "") return;
+
+  const n1 = Number(primeiroNumero);
+  const n2 = Number(segundoNumero);
+
+  const resultadoFinal = calcular(n1, operador, n2);
+
+  handleLimpar();
+
+  setResultado(`${resultadoFinal}`);
+
+  setHistorico((prev) => [
+    ...prev,
+    `${n1} ${operador} ${n2} = ${resultadoFinal}`
+  ]);
+}
 
   return (
     <>

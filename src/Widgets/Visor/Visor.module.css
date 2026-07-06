@@ -1,7 +1,16 @@
 
 .tela{
+  width:230px;
+  height:63px;
   display:flex;
   justify-content:center;
+   text-shadow:
+    0 0 5px #ff9800,
+    0 0 10px #ff9800,
+    0 0 20px #ff9800,
+    0 0 40px #ff9800;
+    color:white;
+
 }
 .visor{
   display:flex;
@@ -10,7 +19,9 @@
   border:2px solid black;
   width:225px;
   height:50px;
-  gap:10px;
+  text-align:center;
+  background-color:#e2dbdc;
+  
 
 }
 .primeiroNumero{
@@ -35,5 +46,5 @@
   display:flex;
   position:relative;
   left:220px;
-  bottom:67px;
+  bottom:16px;
 }

@@ -10,8 +10,9 @@ function Historico({ historico, historicoAberto, setHistoricoAberto }) {
         {historicoAberto ? "❯" : "❮"}
       </button>
       
-         <div className={`${styles.historico} ${historicoAberto ? styles.aberto : styles.fechado}`}>
-
+      <div className={`${styles.historico} ${historicoAberto ? styles.aberto : styles.fechado}`}>
+        
+        <div className={styles.historicoFilho}>
         <h2 className={styles.titulo}>Histórico</h2>
 
         {historico.map((item, index) => (
@@ -20,6 +21,7 @@ function Historico({ historico, historicoAberto, setHistoricoAberto }) {
           </p>
 
         ))}
+        </div>
       </div>
       
     </>

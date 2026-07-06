@@ -1,6 +1,7 @@
 .containerPai{
   display:flex;
   justify-content:center;
+  background-color:#e2dbdc;
 }
 .containerFilho{
   width:225px;

@@ -1,5 +1,5 @@
 import styles from "./Visor.module.css";
-import deletar from "../../sounds/deletar.mp3;
+import deletar from "../../sounds/deletar.mp3";
 
 
 function Visor({primeiroNumero,operador,segundoNumero,resultado,apagarUltimo}){

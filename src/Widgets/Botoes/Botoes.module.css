@@ -1,3 +1,4 @@
+
 .containerPai{
   display:flex;
   justify-content:center;
@@ -5,8 +6,10 @@
 }
 .containerFilho{
   width:225px;
-  border:2px solid black;
   display:flex;
+  border:2px solid black;
+  border-radius:0 0 10px 0;
+
   flex-direction:column;
   gap:5px;
   z-index:1;
@@ -21,12 +24,23 @@
   
 }
 .botao{
+  border:2px solid black;
   width:50px;
   height:50px;
   border-radius:100%;
+  background-color:#f4ead9;
+  text-shadow:
+  0 0 5px  white,
+  0 0 10px white,
+  0 0 20px white,
+  0 0 40px white;
+  color:black;
 
     &:hover{
       cursor:pointer;
+      box-shadow:
+      0 0 5px #ff9800,
+      0 0 10px #ff9800;
     }
 }
 .quintaFileira{
@@ -36,8 +50,23 @@
   border:2px solid black;
   width:100px;
   height:50px;
+  background-color:#f4ead9;
+  text-shadow:
+  0 0 5px  white,
+  0 0 10px white,
+  0 0 20px white,
+  0 0 40px white;
+  color:black;
+
   
     &:hover{
       cursor:pointer;
+      box-shadow:
+      0 0 5px #ff9800,
+      0 0 10px #ff9800;
     }
+}
+.botao:active,.botaoEspecial:active{
+  transform:translateY(4px);
+  box-shadow: 0 0 0 #444;
 }

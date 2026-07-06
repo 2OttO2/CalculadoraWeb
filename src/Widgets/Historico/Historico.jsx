@@ -1,11 +1,20 @@
 import styles from "./Historico.module.css";
 
 function Historico({ historico, historicoAberto, setHistoricoAberto }) {
+
+  const clickSoundMarcador = new Audio("../../../public/sounds/Marcador.mp3");
+
+    function tocarSomMarcador(){
+    clickSoundMarcador.curreentTime = 0;
+    clickSoundMarcador.play();
+
+  }
+
   return (
     <>
       <button
         className={`${styles.botaoSlide} ${historicoAberto ? styles.botaoSlideAberto : styles.botaoSlideFechado}`}
-        onClick={() => setHistoricoAberto(!historicoAberto)}
+        onClick={() => setHistoricoAberto(!historicoAberto) & tocarSomMarcador()}
       >
         {historicoAberto ? "❯" : "❮"}
       </button>

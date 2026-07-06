@@ -100,7 +100,10 @@ const [historicoAberto,setHistoricoAberto] = useState(true);
   const n1 = Number(primeiroNumero);
   const n2 = Number(segundoNumero);
 
-  const resultadoFinal = calcular(n1, operador, n2).toFixed(2);
+  const resultado = calcular(n1, operador, n2);
+  const resultadoFinal = Number.isInteger(resultado)
+    ? resultado
+    : resultado.toFixed(2);
 
   handleLimpar();
 

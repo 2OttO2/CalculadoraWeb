@@ -2,6 +2,15 @@ import styles from "./Visor.module.css";
 
 function Visor({primeiroNumero,operador,segundoNumero,resultado,apagarUltimo}){
 
+  
+  const clickSoundDeletar = new Audio("../../../public/sounds/deletar.mp3");
+
+    function tocarSomDeletar(){
+    clickSoundDeletar.curreentTime = 0;
+    clickSoundDeletar.cloneNode().play();
+
+  }
+
   return(
 
   <>
@@ -15,7 +24,7 @@ function Visor({primeiroNumero,operador,segundoNumero,resultado,apagarUltimo}){
       </p>
       
    </div>
-      <button onClick={apagarUltimo} className={styles.limpar}>l</button>
+      <button onClick={() => apagarUltimo() & tocarSomDeletar()} className={styles.limpar}>❌</button>
   </>
 
   )

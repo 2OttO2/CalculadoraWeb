@@ -89,12 +89,10 @@
 
 }
 .fechado{
-  display:flex;
-  position:absolute;
-  left:75px;
   transform:translateY(250px);
   transition:opacity 0.35s ease, transform 1s ease;
   opacity:0;
+  margin-left:50px;
 }
 .botaoSlideAberto{
   display:flex;

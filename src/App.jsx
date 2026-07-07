@@ -2,6 +2,8 @@ import { useState,useEffect } from 'react'
 import Visor from "./Widgets/Visor/Visor.jsx";
 import Botoes from "./Widgets/Botoes/Botoes.jsx";
 import Historico from "./Widgets/Historico/Historico.jsx";
+import owlSound from "./sounds/owl.mp3";
+import cockSound from "./sounds/cock.mp3";
 
 import './App.css'
 
@@ -14,10 +16,22 @@ const [resultado,setResultado] = useState("");
 const [historico,setHistorico] = useState([]);
 const [historicoAberto,setHistoricoAberto] = useState(true);
 const [tema,setTema] = useState(false);
+const clickSoundOwl = new Audio(owlSound);
+const clickSoundCock = new Audio(cockSound);
 
   useEffect(() => {
       document.documentElement.className = tema ? "" : "temaEscuro";
     },[tema]);
+  
+  function tocarSomOwl(){
+    clickSoundOwl.currentTime = 0;
+    clickSoundOwl.cloneNode().play();
+  }
+   function tocarSomCock(){
+    clickSoundCock.currentTime = 0;
+    clickSoundCock.cloneNode().play();
+  }
+
 
   function handleNumero(valor){
     if(resultado != ""){
@@ -124,7 +138,11 @@ const [tema,setTema] = useState(false);
     <>
     <div className="containerBotaoTema">
       <button className="botaoTema"
-        onClick={() => setTema(!tema)}
+        onClick={() => {
+          !tema ? tocarSomCock() : tocarSomOwl();
+          setTema(!tema);
+        }
+      }
         >
           {tema ? "🌙" : "☀️"}
       </button>

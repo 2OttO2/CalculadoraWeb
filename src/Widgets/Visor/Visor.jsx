@@ -1,11 +1,11 @@
 import styles from "./Visor.module.css";
-import deletar from "../../sounds/deletar.mp3";
+import deletarSound from "../../sounds/deletar.mp3";
 
 
 function Visor({primeiroNumero,operador,segundoNumero,resultado,apagarUltimo}){
 
   
-  const clickSoundDeletar = new Audio(deletar);
+  const clickSoundDeletar = new Audio(deletarSound);
 
     function tocarSomDeletar(){
     clickSoundDeletar.curreentTime = 0;

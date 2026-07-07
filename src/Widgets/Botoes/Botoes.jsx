@@ -1,12 +1,12 @@
 import styles from "./Botoes.module.css";
 import { useState , useEffect } from "react";
-import botao from "../../sounds/botao.mp3";
-import resultado from "../../sounds/resultado.mp3";
+import botaoSound from "../../sounds/botao.mp3";
+import resultadoSound from "../../sounds/resultado.mp3";
 
 function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, handleResultado }){
   
-  const clickSoundBotao = new Audio(botao);
-  const clickSoundResultado = new Audio(resultado);
+  const clickSoundBotao = new Audio(botaoSound);
+  const clickSoundResultado = new Audio(resultadoSound);
 
   function tocarSomBotao(){
     clickSoundBotao.currentTime = 0;

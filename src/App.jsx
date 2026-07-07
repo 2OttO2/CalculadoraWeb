@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import Visor from "./Widgets/Visor/Visor.jsx";
 import Botoes from "./Widgets/Botoes/Botoes.jsx";
 import Historico from "./Widgets/Historico/Historico.jsx";
@@ -13,6 +13,11 @@ const [segundoNumero,setSegundoNumero] = useState("");
 const [resultado,setResultado] = useState("");
 const [historico,setHistorico] = useState([]);
 const [historicoAberto,setHistoricoAberto] = useState(true);
+const [tema,setTema] = useState(false);
+
+  useEffect(() => {
+      document.documentElement.className = tema ? "" : "temaEscuro";
+    },[tema]);
 
   function handleNumero(valor){
     if(resultado != ""){
@@ -117,6 +122,13 @@ const [historicoAberto,setHistoricoAberto] = useState(true);
 
   return (
     <>
+    <div className="containerBotaoTema">
+      <button className="botaoTema"
+        onClick={() => setTema(!tema)}
+        >
+          {tema ? "🌙" : "☀️"}
+      </button>
+    </div>
 
     <div className="container">
 

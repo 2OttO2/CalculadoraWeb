@@ -3,6 +3,7 @@
   display:flex;
   justify-content:center;
   background-color:#e2dbdc;
+  border-radius:0 0 10px 0;
 }
 .containerFilho{
   width:225px;

@@ -78,13 +78,13 @@
   justify-content:center;
   margin-left:30px;
   top:-16px;
-  width:225px;
+  width:224px;
   height:151px;
 }
 
 
  .aberto{
-  transform:translateY(400px);
+  transform:translateY(392px);
   transition:opacity 0.35s ease, transform 1s ease;
 
 }

@@ -18,18 +18,29 @@ const [historicoAberto,setHistoricoAberto] = useState(true);
 const [tema,setTema] = useState(false);
 const clickSoundOwl = new Audio(owlSound);
 const clickSoundCock = new Audio(cockSound);
+const [mutado,setMutado] = useState(false);
 
   useEffect(() => {
       document.documentElement.className = tema ? "" : "temaEscuro";
     },[tema]);
   
+
   function tocarSomOwl(){
+    if(!mutado){
     clickSoundOwl.currentTime = 0;
     clickSoundOwl.cloneNode().play();
+    }else{
+      return;
+    }
   }
+
    function tocarSomCock(){
+    if(!mutado){
     clickSoundCock.currentTime = 0;
     clickSoundCock.cloneNode().play();
+    }else{
+      return;
+    }
   }
 
 
@@ -150,6 +161,12 @@ const clickSoundCock = new Audio(cockSound);
           {tema ? "☀️" : "🌙"}
       </button>
       <p className="sol">🌙</p>
+    </div>
+
+    <div>
+        <button onClick={() => setMutado(!mutado)}>
+          {mutado ? "🔇" : "🔊"}
+        </button>
     </div>
 
     <div className="container">

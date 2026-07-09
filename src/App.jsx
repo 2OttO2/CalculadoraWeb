@@ -148,7 +148,6 @@ const [mutado,setMutado] = useState(false);
   return (
     <>
     <div className={tema ? "containerBotaoTemaClaro" : "containerBotaoTemaEscuro"}>
-
       <p className ="lua">☀️</p>
 
       <button className={tema ? "botaoTemaClaro" : "botaoTemaEscuro"}
@@ -160,6 +159,7 @@ const [mutado,setMutado] = useState(false);
         >
           {tema ? "☀️" : "🌙"}
       </button>
+
       <p className="sol">🌙</p>
     </div>
 

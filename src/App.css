@@ -11,15 +11,7 @@
   flex-direction:column;
  
 }
-@media (max-width:844px){
 
-  .container{
-    display:flex;
-    justify-content:center;
-    margin-right:50px;
-  }
-
-}
 :root {
   --bg: #ffffff;
 }
@@ -47,9 +39,11 @@ body,.botaoTema{
   transform:translateX(25px);
   width:60px;
   height:60px;
-  background-color:#1000b5;
+  /* background-color:#1000b5; */ 
+  background-image: url("./assets/noiteTema.png");
+  background-size:cover;
   border-radius:50%;
-  border:2px solid black;
+  border:2px solid white;
   
 
     &:hover{
@@ -66,6 +60,28 @@ body,.botaoTema{
 
 }
 
+.botaoTemaClaro:active{
+  transform:translateY(4px);
+  box-shadow: 0 0 0 #444;
+}
+
+.containerBotaoTemaEscuro{
+  border:2px solid white;
+  display:flex;
+  position:relative;
+  align-items:center;
+  justify-content:center;
+  left:46%;
+  top:15px;
+
+  width:100px;
+  height:42px;
+  border-radius:50px;
+  /* background-color:#1000b5; */ 
+  background-image: url("./assets/noiteTema.png");
+  background-size:cover;
+ 
+}
 
 .botaoTemaClaro{
   z-index:2;
@@ -73,7 +89,9 @@ body,.botaoTema{
   transform:translateX(-25px);
   width:60px;
   height:60px;
-  background-color:#00baf7;
+  background-image:url("./assets/botaoDayTema.png");
+  background-size:cover;
+  /* background-color:#00baf7; */
   border-radius:50%;
   border:2px solid black;
    text-shadow:
@@ -88,37 +106,24 @@ body,.botaoTema{
     }
 
 }
-.botaoTemaClaro:active{
-  transform:translateY(4px);
-  box-shadow: 0 0 0 #444;
-}
-
-.containerBotaoTemaEscuro{
-  border:2px solid black;
-  display:flex;
-  position:absolute;
-  align-items:center;
-  justify-content:center;
-  margin-top:40px;
-  margin-left:10px;
-  width:100px;
-  height:42px;
-  border-radius:50px;
-  background-color:#1000b5;
- 
-}
 
 .containerBotaoTemaClaro{
   display:flex;
-  position:absolute;
+  position:relative;
   align-items:center;
   justify-content:center;
-  margin-top:40px;
-  margin-left:10px;
+  left:46%;
+  top:15px;
   width:100px;
   height:42px;
   border-radius:50px;
-  background-color:#00baf7;
+  
+  background-image: url("./assets/slideDayTema.png");
+  background-size: cover;
+  background-position:10px -9px;
+  
+
+  /* background-color:#00baf7; */
   border:2px solid black;
  
 }
@@ -128,4 +133,17 @@ body,.botaoTema{
 }
 .sol{
   transform:translateX(-9px);
+}
+@media (max-width:844px){
+
+  .container{
+    display:flex;
+    justify-content:center;
+    margin-right:50px;
+  }
+  .containerBotaoTemaEscuro,.containerBotaoTemaClaro{
+    left:10px;
+    top:105px;
+  }
+
 }

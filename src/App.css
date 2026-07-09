@@ -42,19 +42,15 @@ body,.botaoTema{
 }
 
 .botaoTemaEscuro{
+  z-index:2;
   transition:transform 1s ease;
   transform:translateX(25px);
   width:60px;
   height:60px;
-  background-color:#e2dbdc;
+  background-color:#1000b5;
   border-radius:50%;
   border:2px solid black;
-   text-shadow:
-  0 0 5px  white,
-  0 0 10px white,
-  0 0 20px white,
-  0 0 40px white;
-  color:black;
+  
 
     &:hover{
       cursor:pointer;
@@ -72,19 +68,17 @@ body,.botaoTema{
 
 
 .botaoTemaClaro{
+  z-index:2;
   transition:transform 1s ease;
   transform:translateX(-25px);
   width:60px;
   height:60px;
-  background-color:#e2dbdc;
+  background-color:#00baf7;
   border-radius:50%;
   border:2px solid black;
    text-shadow:
-  0 0 5px  white,
-  0 0 10px white,
-  0 0 20px white,
-  0 0 40px white;
-  color:black;
+  0 0 5px  white;
+  color:white;
 
     &:hover{
       cursor:pointer;
@@ -110,7 +104,7 @@ body,.botaoTema{
   width:100px;
   height:42px;
   border-radius:50px;
-  background-color:#f4eadb;
+  background-color:#1000b5;
  
 }
 
@@ -124,7 +118,14 @@ body,.botaoTema{
   width:100px;
   height:42px;
   border-radius:50px;
-  background-color:#f4eadb;
+  background-color:#00baf7;
   border:2px solid black;
  
+}
+.lua{
+  
+  transform:translateX(9px);
+}
+.sol{
+  transform:translateX(-9px);
 }

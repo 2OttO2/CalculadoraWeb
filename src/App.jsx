@@ -137,6 +137,9 @@ const clickSoundCock = new Audio(cockSound);
   return (
     <>
     <div className={tema ? "containerBotaoTemaClaro" : "containerBotaoTemaEscuro"}>
+
+      <p className ="lua">☀️</p>
+
       <button className={tema ? "botaoTemaClaro" : "botaoTemaEscuro"}
         onClick={() => {
           !tema ? tocarSomCock() : tocarSomOwl();
@@ -144,8 +147,9 @@ const clickSoundCock = new Audio(cockSound);
         }
       }
         >
-          {tema ? "🌙" : "☀️"}
+          {tema ? "☀️" : "🌙"}
       </button>
+      <p className="sol">🌙</p>
     </div>
 
     <div className="container">

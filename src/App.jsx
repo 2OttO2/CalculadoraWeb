@@ -175,6 +175,7 @@ const [mutado,setMutado] = useState(false);
           historico={historico}
           historicoAberto={historicoAberto}
           setHistoricoAberto={setHistoricoAberto}
+          mutado={mutado}
 
         />
       <div className="calculadora">
@@ -185,7 +186,7 @@ const [mutado,setMutado] = useState(false);
         segundoNumero={segundoNumero}
         resultado={resultado}
         apagarUltimo={apagarUltimo}
-
+        mutado={mutado}
 
         />
         <Botoes
@@ -207,6 +208,8 @@ const [mutado,setMutado] = useState(false);
           handleLimpar={handleLimpar}
           handleVirgula={handleVirgula}
           handleResultado={handleResultado}
+
+          mutado={mutado}
 
         />
 

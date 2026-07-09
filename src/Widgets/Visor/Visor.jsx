@@ -2,15 +2,18 @@ import styles from "./Visor.module.css";
 import deletarSound from "../../sounds/deletar.mp3";
 
 
-function Visor({primeiroNumero,operador,segundoNumero,resultado,apagarUltimo}){
+function Visor({ primeiroNumero, operador, segundoNumero, resultado, apagarUltimo, mutado}){
 
   
   const clickSoundDeletar = new Audio(deletarSound);
 
     function tocarSomDeletar(){
+    if(!mutado){
     clickSoundDeletar.curreentTime = 0;
     clickSoundDeletar.cloneNode().play();
-
+    }else{
+      return;
+    }
   }
 
   return(

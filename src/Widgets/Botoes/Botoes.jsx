@@ -3,22 +3,27 @@ import { useState , useEffect } from "react";
 import botaoSound from "../../sounds/botao.mp3";
 import resultadoSound from "../../sounds/resultado.mp3";
 
-function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, handleResultado }){
+function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, handleResultado, mutado }){
   
   const clickSoundBotao = new Audio(botaoSound);
   const clickSoundResultado = new Audio(resultadoSound);
 
   function tocarSomBotao(){
+      if(!mutado){
     clickSoundBotao.currentTime = 0;
     clickSoundBotao.play();
+    }else{
+      return;
+    }
   }
   function tocarSomResultado(){
+    if(!mutado){
     clickSoundResultado.currentTime = 0;
     clickSoundResultado.play();
+    }else{
+      return;
+    }
   }
-
-
- 
 
   return(
 

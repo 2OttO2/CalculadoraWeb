@@ -161,10 +161,12 @@ const [mutado,setMutado] = useState(false);
       </button>
 
       <p className="sol">🌙</p>
+
+
     </div>
 
-    <div>
-        <button onClick={() => setMutado(!mutado)}>
+    <div className="containerBotaoMute">
+        <button className="botaoMute" onClick={() => setMutado(!mutado)}>
           {mutado ? "🔇" : "🔊"}
         </button>
     </div>

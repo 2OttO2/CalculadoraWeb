@@ -97,7 +97,7 @@
 .botaoSlideAberto{
   display:flex;
   position:relative;
-  top:367px;
+  top:363px;
   left:135px;
 
   transform: rotate(270deg);

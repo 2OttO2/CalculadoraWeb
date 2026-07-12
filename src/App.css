@@ -161,11 +161,12 @@ body,.botaoTema{
     margin-right:50px;
   }
   .containerBotaoTemaEscuro,.containerBotaoTemaClaro{
-    left:10px;
-    top:105px;
+    position:relative;
+    left:5px;
   }
   .containerBotaoMute{
     justify-content:flex-start;
+    left:5px;
   }
 
 }

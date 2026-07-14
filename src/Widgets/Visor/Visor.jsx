@@ -1,5 +1,6 @@
 import styles from "./Visor.module.css";
 import deletarSound from "../../sounds/deletar.mp3";
+import { useEffect,useRef } from "react"
 
 
 function Visor({ primeiroNumero, operador, segundoNumero, resultado, apagarUltimo, mutado}){
@@ -15,6 +16,28 @@ function Visor({ primeiroNumero, operador, segundoNumero, resultado, apagarUltim
       return;
     }
   }
+    const botaoApagarUltimo = useRef(null);
+    
+       useEffect(() =>{
+    const handleKeyDown = (tecla) => {
+
+      switch(tecla.key){
+          case "Backspace":
+          botaoApagarUltimo.current.click();
+          break;
+        default:
+          break;
+
+      }
+    };
+    window.addEventListener("keydown",handleKeyDown);
+
+      return() => {
+        window.removeEventListener("keydown", handleKeyDown);
+    };
+  },[]);
+
+
 
   return(
 
@@ -29,7 +52,7 @@ function Visor({ primeiroNumero, operador, segundoNumero, resultado, apagarUltim
       </p>
       
    </div>
-      <button onClick={() => apagarUltimo() & tocarSomDeletar()} className={styles.limpar}>❌</button>
+      <button ref={botaoApagarUltimo} onClick={() => apagarUltimo() & tocarSomDeletar()} className={styles.limpar}>❌</button>
   </>
 
   )

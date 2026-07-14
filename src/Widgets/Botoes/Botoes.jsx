@@ -4,7 +4,8 @@ import botaoSound from "../../sounds/botao.mp3";
 import resultadoSound from "../../sounds/resultado.mp3";
 
 function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, handleResultado, mutado}){
-  
+ 
+  //resolver animation dos botao no input do teclado
   const clickSoundBotao = new Audio(botaoSound);
   const clickSoundResultado = new Audio(resultadoSound);
 

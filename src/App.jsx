@@ -20,6 +20,8 @@ const clickSoundOwl = new Audio(owlSound);
 const clickSoundCock = new Audio(cockSound);
 const [mutado,setMutado] = useState(false);
 
+
+ 
   useEffect(() => {
       document.documentElement.className = tema ? "" : "temaEscuro";
     },[tema]);
@@ -144,6 +146,62 @@ const [mutado,setMutado] = useState(false);
     `${n1} ${operador} ${n2} = ${resultadoFinal}`
   ]);
 }
+
+   useEffect(() =>{
+    const handleKeyDown = (tecla) => {
+
+      switch(tecla.key){
+        case "0":
+        case "1":
+        case "2":
+        case "3":
+        case "4":
+        case "5":
+        case "6":
+        case "7":
+        case "8":
+        case "9":
+          handleNumero();
+          break;
+
+        case "+":
+        case "-":
+        case "X":
+        case "/":
+          handleOperador();
+          break;
+        
+        case ".":
+        case ",":
+          handleVirgula();
+          break;
+
+
+        case "Enter":
+        case "=":
+          handleResultado();
+          break;
+  
+        case "Backspace":
+          apagarUltimo();
+          break;
+
+        case "Escape":
+          handleLimpar();
+          break;
+
+        default:
+          break;
+
+      }
+    };
+    window.addEventListener("keydown",handleKeyDown);
+
+      return() => {
+        window.removeEventListener("keydown", handleKeyDown);
+    };
+  },[])
+
 
   return (
     <>

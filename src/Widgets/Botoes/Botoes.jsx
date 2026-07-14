@@ -67,10 +67,9 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
           botao9.current.click();
           break;
 
-        case ("x"):
-          botaoMultiplicacao.current.click();
-          break;
-        case ("X"):
+        case "x":
+        case "X":
+        case "*":
           botaoMultiplicacao.current.click();
           break;
         case "+":
@@ -96,6 +95,8 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
           break;
 
         case "Escape":
+        case "c":
+        case "C":
           botaoApagarTudo.current.click();
           break;
 
@@ -110,7 +111,6 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
         window.removeEventListener("keydown", handleKeyDown);
     };
   },[])
-
 
 
   function tocarSomBotao(){

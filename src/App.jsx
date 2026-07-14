@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react'
+import { useState,useEffect,useRef } from 'react'
 import Visor from "./Widgets/Visor/Visor.jsx";
 import Botoes from "./Widgets/Botoes/Botoes.jsx";
 import Historico from "./Widgets/Historico/Historico.jsx";
@@ -19,7 +19,7 @@ const [tema,setTema] = useState(false);
 const clickSoundOwl = new Audio(owlSound);
 const clickSoundCock = new Audio(cockSound);
 const [mutado,setMutado] = useState(false);
-
+const botaoMute = useRef(null);
 
  
   useEffect(() => {
@@ -146,6 +146,25 @@ const [mutado,setMutado] = useState(false);
     `${n1} ${operador} ${n2} = ${resultadoFinal}`
   ]);
 }
+       useEffect(() =>{
+    const handleKeyDown = (tecla) => {
+
+      switch(tecla.key){
+        case "m":
+        case "M":
+          botaoMute.current.click();
+          break;
+        default:
+          break;
+
+      }
+    };
+    window.addEventListener("keydown",handleKeyDown);
+
+      return() => {
+        window.removeEventListener("keydown", handleKeyDown);
+    };
+  },[])
 
   return (
     <>
@@ -168,7 +187,7 @@ const [mutado,setMutado] = useState(false);
     </div>
 
     <div className="containerBotaoMute">
-        <button className="botaoMute" onClick={() => setMutado(!mutado)}>
+        <button ref={botaoMute} className="botaoMute" onClick={() => setMutado(!mutado)}>
           {mutado ? "🔇" : "🔊"}
         </button>
     </div>

@@ -147,64 +147,6 @@ const [mutado,setMutado] = useState(false);
   ]);
 }
 
-   useEffect(() =>{
-    const handleKeyDown = (tecla) => {
-
-      switch(tecla.key){
-        case "0":
-        case "1":
-        case "2":
-        case "3":
-        case "4":
-        case "5":
-        case "6":
-        case "7":
-        case "8":
-        case "9":
-          handleNumero(tecla.key);
-          break;
-
-        case ("x"):
-        case ("X"):
-        case "+":
-        case "-":
-        case "%":
-        case "/":
-          handleOperador(tecla.key);
-          break;
-        
-        case ".":
-        case ",":
-          handleVirgula(tecla.key);
-          break;
-
-
-        case "Enter":
-        case "=":
-          handleResultado(tecla.key);
-          break;
-  
-        case "Backspace":
-          apagarUltimo(tecla.key);
-          break;
-
-        case "Escape":
-          handleLimpar(tecla.key);
-          break;
-
-        default:
-          break;
-
-      }
-    };
-    window.addEventListener("keydown",handleKeyDown);
-
-      return() => {
-        window.removeEventListener("keydown", handleKeyDown);
-    };
-  },[primeiroNumero,segundoNumero,operador,resultado])
-
-
   return (
     <>
     <div className={tema ? "containerBotaoTemaClaro" : "containerBotaoTemaEscuro"}>
@@ -268,9 +210,11 @@ const [mutado,setMutado] = useState(false);
           handleNumero={handleNumero}
           handleOperador={handleOperador}
           handleLimpar={handleLimpar}
+          
           handleVirgula={handleVirgula}
           handleResultado={handleResultado}
 
+          apagarUltimo={apagarUltimo}
           mutado={mutado}
 
         />

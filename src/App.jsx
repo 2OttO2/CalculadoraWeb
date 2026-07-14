@@ -161,33 +161,33 @@ const [mutado,setMutado] = useState(false);
         case "7":
         case "8":
         case "9":
-          handleNumero();
+          handleNumero(tecla.key);
           break;
 
         case "+":
         case "-":
         case "X":
         case "/":
-          handleOperador();
+          handleOperador(tecla);
           break;
         
         case ".":
         case ",":
-          handleVirgula();
+          handleVirgula(tecla.key);
           break;
 
 
         case "Enter":
         case "=":
-          handleResultado();
+          handleResultado(tecla.key);
           break;
   
         case "Backspace":
-          apagarUltimo();
+          apagarUltimo(tecla.key);
           break;
 
         case "Escape":
-          handleLimpar();
+          handleLimpar(tecla.key);
           break;
 
         default:

@@ -164,11 +164,13 @@ const [mutado,setMutado] = useState(false);
           handleNumero(tecla.key);
           break;
 
+        case ("x"):
+        case ("X"):
         case "+":
         case "-":
-        case "X":
+        case "%":
         case "/":
-          handleOperador(tecla);
+          handleOperador(tecla.key);
           break;
         
         case ".":
@@ -200,7 +202,7 @@ const [mutado,setMutado] = useState(false);
       return() => {
         window.removeEventListener("keydown", handleKeyDown);
     };
-  },[])
+  },[primeiroNumero,segundoNumero,operador,resultado])
 
 
   return (

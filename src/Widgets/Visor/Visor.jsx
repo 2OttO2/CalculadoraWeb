@@ -1,12 +1,13 @@
 import styles from "./Visor.module.css";
 import deletarSound from "../../sounds/deletar.mp3";
-import { useEffect,useRef } from "react"
+import {  useState,useEffect,useRef } from "react"
 
 
 function Visor({ primeiroNumero, operador, segundoNumero, resultado, apagarUltimo, mutado}){
 
   
   const clickSoundDeletar = new Audio(deletarSound);
+  const [botaoAtivo,setBotaoAtivo] = useState("");
 
     function tocarSomDeletar(){
     if(!mutado){
@@ -18,21 +19,29 @@ function Visor({ primeiroNumero, operador, segundoNumero, resultado, apagarUltim
   }
     const botaoApagarUltimo = useRef(null);
     
-       useEffect(() =>{
-    const handleKeyDown = (tecla) => {
+    useEffect(() =>{
+      const handleKeyDown = (tecla) => {
+
+      if(tecla.repeat) return;
 
       switch(tecla.key){
           case "Backspace":
           botaoApagarUltimo.current.click();
+          setBotaoAtivo("Backspace");
           break;
         default:
           break;
 
       }
     };
+    const handleKeyUp = () => {
+      setBotaoAtivo("");
+    };
+    window.addEventListener("keyup",handleKeyUp);
     window.addEventListener("keydown",handleKeyDown);
 
       return() => {
+        window.removeEventListener("keyup",handleKeyUp);
         window.removeEventListener("keydown", handleKeyDown);
     };
   },[]);
@@ -52,7 +61,7 @@ function Visor({ primeiroNumero, operador, segundoNumero, resultado, apagarUltim
       </p>
       
    </div>
-      <button ref={botaoApagarUltimo} onClick={() => apagarUltimo() & tocarSomDeletar()} className={styles.limpar}>❌</button>
+      <button ref={botaoApagarUltimo} onClick={() => apagarUltimo() & tocarSomDeletar()} className={botaoAtivo === "Backspace" ? styles.limparPrecionado : styles.limpar}>❌</button>
   </>
 
   )

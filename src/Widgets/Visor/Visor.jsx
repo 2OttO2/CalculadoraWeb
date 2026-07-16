@@ -61,7 +61,7 @@ function Visor({ primeiroNumero, operador, segundoNumero, resultado, apagarUltim
       </p>
       
    </div>
-      <button ref={botaoApagarUltimo} onClick={() => apagarUltimo() & tocarSomDeletar()} className={botaoAtivo === "Backspace" ? styles.limparPrecionado : styles.limpar}>❌</button>
+      <button ref={botaoApagarUltimo} onClick={() => apagarUltimo() & tocarSomDeletar()} className={botaoAtivo === "Backspace" ? styles.limparAtivo : styles.limpar}>❌</button>
   </>
 
   )

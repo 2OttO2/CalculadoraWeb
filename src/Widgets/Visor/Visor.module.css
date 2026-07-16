@@ -65,3 +65,17 @@
   transform:translateY(4px);
   box-shadow: 0 0 0 #444;
 }
+.limparAtivo{
+  display:flex;
+  position:relative;
+  left:212px;
+  bottom:16px;
+  border:0px;
+   text-shadow:
+    0 0 5px red;
+    color:white;
+    border:1px solid red;
+    box-shadow: 0 0 10px red;
+    transform:translateY(4px);
+    box-shadow:0 0 0 #444;
+}

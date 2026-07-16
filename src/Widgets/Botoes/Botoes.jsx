@@ -8,7 +8,7 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
   //resolver animation dos botao no input do teclado
   const clickSoundBotao = new Audio(botaoSound);
   const clickSoundResultado = new Audio(resultadoSound);
-  let precionado = useState(false);
+  const [botaoAtivo,setBotaoAtivo] = useState("");
 
   const botao0  = useRef(null);
   const botao1 = useRef(null);
@@ -33,88 +33,103 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
   const botaoResultado = useRef(null);
   
    useEffect(() =>{
-    const handleKeyDown = (tecla,precionado) => {
+    const handleKeyDown = (tecla) => {
    
       switch(tecla.key){
         case "0":
           botao0.current.click();
-          precionado = true;
-          console.log(precionado);
+          setBotaoAtivo("0");
         break;
         case "1":
           botao1.current.click();
+          setBotaoAtivo("1");
           break;
         case "2":
           botao2.current.click();
+           setBotaoAtivo("2");
           break;
         case "3":
           botao3.current.click();
+          setBotaoAtivo("3");
           break;
         case "4":
           botao4.current.click();
+          setBotaoAtivo("4");
           break;
         case "5":
           botao5.current.click();
+          setBotaoAtivo("5");
           break;
         case "6":
           botao6.current.click();
+          setBotaoAtivo("6");
           break;
         case "7":
           botao7.current.click();
+          setBotaoAtivo("7");
           break;
         case "8":
           botao8.current.click();
+          setBotaoAtivo("8");
           break;
         case "9":
           botao9.current.click();
+          setBotaoAtivo("9");
           break;
 
         case "x":
         case "X":
         case "*":
+          setBotaoAtivo("x");
           botaoMultiplicacao.current.click();
           break;
         case "+":
+          setBotaoAtivo("+");
           botaoAdicao.current.click();
           break;
         case "-":
+          setBotaoAtivo("-");
           botaoSubtracao.current.click();
           break;
         case "%":
+          setBotaoAtivo("%");
           botaoPorcentagem.current.click();
           break;
         case "/":
+          setBotaoAtivo("/");
           botaoDivisao.current.click();
           break;
         
         case ".":
         case ",":
+          setBotaoAtivo(",");
           botaoVirgula.current.click();
           break;
 
         case "Enter":
+          setBotaoAtivo("enter");
           botaoResultado.current.click();
           break;
 
         case "Escape":
         case "c":
         case "C":
+          setBotaoAtivo("c");
           botaoApagarTudo.current.click();
           break;
 
         default:
           break;
 
+      
       }
     };
     window.addEventListener("keydown",handleKeyDown);
 
       return() => {
         window.removeEventListener("keydown", handleKeyDown);
-        precionado = false;
     };
   },[])
-  console.log(precionado);
 
 
   function tocarSomBotao(){
@@ -142,7 +157,7 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
 
     <div className={styles.primeiraFileira}>
 
-      <button ref={botao1} onClick={() => handleNumero(1) & tocarSomBotao()} className={precionado ? styles.botao : styles.botaoAtivo} >1</button>
+      <button ref={botao1} onClick={() => handleNumero(1) & tocarSomBotao()} className={botaoAtivo === "1" ? styles.botaoAtivo : styles.botao} >1</button>
       <button ref={botao2} onClick={() => handleNumero(2) & tocarSomBotao()} className={styles.botao} >2</button>
       <button ref={botao3} onClick={() => handleNumero(3) & tocarSomBotao()} className={styles.botao} >3</button>
       <button ref={botaoAdicao} onClick={() => handleOperador("+") & tocarSomBotao()} className={styles.botao} >+</button>

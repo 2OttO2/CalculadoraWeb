@@ -34,6 +34,8 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
   
    useEffect(() =>{
     const handleKeyDown = (tecla) => {
+      
+      if(tecla.repeat) return;
    
       switch(tecla.key){
         case "0":
@@ -120,7 +122,6 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
 
         default:
           break;
-
       
       }
     };
@@ -132,6 +133,7 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
     window.addEventListener("keydown",handleKeyDown);
 
       return() => {
+
         window.removeEventListener("keyup", handleKeyUp);
         window.removeEventListener("keydown", handleKeyDown);
     };

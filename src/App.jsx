@@ -4,6 +4,7 @@ import Botoes from "./Widgets/Botoes/Botoes.jsx";
 import Historico from "./Widgets/Historico/Historico.jsx";
 import owlSound from "./sounds/owl.mp3";
 import cockSound from "./sounds/cock.mp3";
+import marcadorSound from "./sounds/Marcador.mp3";
 
 import './App.css'
 
@@ -20,12 +21,23 @@ const clickSoundOwl = new Audio(owlSound);
 const clickSoundCock = new Audio(cockSound);
 const [mutado,setMutado] = useState(false);
 const botaoMute = useRef(null);
+const clickSoundMarcador = new Audio(marcadorSound);
 
  
   useEffect(() => {
       document.documentElement.className = tema ? "" : "temaEscuro";
     },[tema]);
   
+
+  
+  function tocarSomMarcador(){
+    if(!mutado){
+    clickSoundMarcador.curreentTime = 0;
+    clickSoundMarcador.play();
+    }else{
+      return;
+    }
+  }
 
   function tocarSomOwl(){
     if(!mutado){
@@ -149,16 +161,23 @@ const botaoMute = useRef(null);
        useEffect(() =>{
     const handleKeyDown = (tecla) => {
 
+      if(tecla.repeat) return;
+
       switch(tecla.key){
         case "m":
         case "M":
           botaoMute.current.click();
           break;
+        case "h":
+        case "H":
+        setHistoricoAberto((prev) => !prev);
+        tocarSomMarcador();
         default:
           break;
 
       }
     };
+
     window.addEventListener("keydown",handleKeyDown);
 
       return() => {

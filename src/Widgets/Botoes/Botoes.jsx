@@ -8,6 +8,7 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
   //resolver animation dos botao no input do teclado
   const clickSoundBotao = new Audio(botaoSound);
   const clickSoundResultado = new Audio(resultadoSound);
+  let precionado = useState(false);
 
   const botao0  = useRef(null);
   const botao1 = useRef(null);
@@ -32,12 +33,13 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
   const botaoResultado = useRef(null);
   
    useEffect(() =>{
-    const handleKeyDown = (tecla) => {
-
+    const handleKeyDown = (tecla,precionado) => {
+   
       switch(tecla.key){
         case "0":
           botao0.current.click();
-          console.log(apagarUltimo);
+          precionado = true;
+          console.log(precionado);
         break;
         case "1":
           botao1.current.click();
@@ -109,8 +111,10 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
 
       return() => {
         window.removeEventListener("keydown", handleKeyDown);
+        precionado = false;
     };
   },[])
+  console.log(precionado);
 
 
   function tocarSomBotao(){
@@ -138,7 +142,7 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
 
     <div className={styles.primeiraFileira}>
 
-      <button ref={botao1} onClick={() => handleNumero(1) & tocarSomBotao()} className={styles.botao} >1</button>
+      <button ref={botao1} onClick={() => handleNumero(1) & tocarSomBotao()} className={precionado ? styles.botao : styles.botaoAtivo} >1</button>
       <button ref={botao2} onClick={() => handleNumero(2) & tocarSomBotao()} className={styles.botao} >2</button>
       <button ref={botao3} onClick={() => handleNumero(3) & tocarSomBotao()} className={styles.botao} >3</button>
       <button ref={botaoAdicao} onClick={() => handleOperador("+") & tocarSomBotao()} className={styles.botao} >+</button>

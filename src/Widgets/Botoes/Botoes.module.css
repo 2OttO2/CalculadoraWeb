@@ -79,7 +79,47 @@
 
 }
 
+}
+
+.botaoAtivo{
+  border:2px solid black;
+  width:50px;
+  height:50px;
+  border-radius:100%;
+  background-color:#f4ead9;
+  text-shadow:
+  0 0 5px  white,
+  0 0 10px white,
+  0 0 20px white,
+  0 0 40px white;
+  color:black;
+  transform:translateY(4px);
+  box-shadow:
+    0 0 5px #ff9800,
+    0 0 10px #ff9800;
 
 
 }
+.botaoEspecialAtivo{
+  border:2px solid black;
+  width:100px;
+  height:50px;
+  background-color:#f4ead9;
+  text-shadow:
+  0 0 5px  white,
+  0 0 10px white,
+  0 0 20px white,
+  0 0 40px white;
+  color:black;
+  transform:translateY(4px);
+  box-shadow:
+    0 0 5px #ff9800,
+    0 0 10px #ff9800;
+
+
+
+}
+
+
+
 

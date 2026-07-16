@@ -124,9 +124,15 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
       
       }
     };
+    const handleKeyUp = () => {
+      setBotaoAtivo("");
+    };
+
+    window.addEventListener("keyup", handleKeyUp);
     window.addEventListener("keydown",handleKeyDown);
 
       return() => {
+        window.removeEventListener("keyup", handleKeyUp);
         window.removeEventListener("keydown", handleKeyDown);
     };
   },[])
@@ -158,43 +164,43 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
     <div className={styles.primeiraFileira}>
 
       <button ref={botao1} onClick={() => handleNumero(1) & tocarSomBotao()} className={botaoAtivo === "1" ? styles.botaoAtivo : styles.botao} >1</button>
-      <button ref={botao2} onClick={() => handleNumero(2) & tocarSomBotao()} className={styles.botao} >2</button>
-      <button ref={botao3} onClick={() => handleNumero(3) & tocarSomBotao()} className={styles.botao} >3</button>
-      <button ref={botaoAdicao} onClick={() => handleOperador("+") & tocarSomBotao()} className={styles.botao} >+</button>
+      <button ref={botao2} onClick={() => handleNumero(2) & tocarSomBotao()} className={botaoAtivo === "2" ? styles.botaoAtivo : styles.botao} >2</button>
+      <button ref={botao3} onClick={() => handleNumero(3) & tocarSomBotao()} className={botaoAtivo === "3" ? styles.botaoAtivo : styles.botao} >3</button>
+      <button ref={botaoAdicao} onClick={() => handleOperador("+") & tocarSomBotao()} className={botaoAtivo === "+" ? styles.botaoAtivo : styles.botao} >+</button>
      
     </div>
 
     <div className={styles.segundaFileira}>
 
-      <button ref={botao4} onClick={() => handleNumero(4) & tocarSomBotao()} className={styles.botao} >4</button>
-      <button ref={botao5} onClick={() => handleNumero(5) & tocarSomBotao()} className={styles.botao} >5</button>
-      <button ref={botao6} onClick={() => handleNumero(6) & tocarSomBotao()} className={styles.botao} >6</button>
-      <button ref={botaoSubtracao} onClick={() => handleOperador("-") & tocarSomBotao()} className={styles.botao} >-</button>
+      <button ref={botao4} onClick={() => handleNumero(4) & tocarSomBotao()} className={botaoAtivo === "4" ? styles.botaoAtivo : styles.botao} >4</button>
+      <button ref={botao5} onClick={() => handleNumero(5) & tocarSomBotao()} className={botaoAtivo === "5" ? styles.botaoAtivo : styles.botao} >5</button>
+      <button ref={botao6} onClick={() => handleNumero(6) & tocarSomBotao()} className={botaoAtivo === "6" ? styles.botaoAtivo : styles.botao} >6</button>
+      <button ref={botaoSubtracao} onClick={() => handleOperador("-") & tocarSomBotao()} className={botaoAtivo === "-" ? styles.botaoAtivo : styles.botao} >-</button>
 
     </div>
 
     <div className={styles.terceiraFileira}>
 
-      <button ref={botao7} onClick={() => handleNumero(7) & tocarSomBotao()} className={styles.botao} >7</button>
-      <button ref={botao8} onClick={() => handleNumero(8) & tocarSomBotao()} className={styles.botao} >8</button>
-      <button ref={botao9} onClick={() => handleNumero(9) & tocarSomBotao()} className={styles.botao} >9</button>
-      <button ref={botaoDivisao} onClick={() => handleOperador("/") & tocarSomBotao()} className={styles.botao} >/</button>
+      <button ref={botao7} onClick={() => handleNumero(7) & tocarSomBotao()} className={botaoAtivo === "7" ? styles.botaoAtivo : styles.botao} >7</button>
+      <button ref={botao8} onClick={() => handleNumero(8) & tocarSomBotao()} className={botaoAtivo === "8" ? styles.botaoAtivo : styles.botao} >8</button>
+      <button ref={botao9} onClick={() => handleNumero(9) & tocarSomBotao()} className={botaoAtivo === "9" ? styles.botaoAtivo : styles.botao} >9</button>
+      <button ref={botaoDivisao} onClick={() => handleOperador("/") & tocarSomBotao()} className={botaoAtivo === "/" ? styles.botaoAtivo : styles.botao} >/</button>
 
     </div>
 
     <div className={styles.quartaFileira}>
 
-      <button ref={botao0} onClick={() => handleNumero(0) & tocarSomBotao()} className={styles.botao} >0</button>
-      <button ref={botaoVirgula} onClick={() => handleVirgula(",") & tocarSomBotao()} className={styles.botao} >,</button>
-      <button ref={botaoPorcentagem} onClick={() => handleOperador("%") & tocarSomBotao()} className={styles.botao}>%</button>
-      <button ref={botaoMultiplicacao} onClick={() => handleOperador("X") & tocarSomBotao()} className={styles.botao} >X</button>
+      <button ref={botao0} onClick={() => handleNumero(0) & tocarSomBotao()} className={botaoAtivo === "0" ? styles.botaoAtivo : styles.botao} >0</button>
+      <button ref={botaoVirgula} onClick={() => handleVirgula(",") & tocarSomBotao()} className={botaoAtivo === "," ? styles.botaoAtivo : styles.botao} >,</button>
+      <button ref={botaoPorcentagem} onClick={() => handleOperador("%") & tocarSomBotao()} className={botaoAtivo === "%" ? styles.botaoAtivo : styles.botao} >%</button>
+      <button ref={botaoMultiplicacao} onClick={() => handleOperador("X") & tocarSomBotao()} className={botaoAtivo === "x" ? styles.botaoAtivo : styles.botao} >X</button>
 
     </div>
 
     <div className={styles.quintaFileira}>
 
-      <button ref={botaoApagarTudo} onClick={() => handleLimpar("C") & tocarSomResultado()} className={styles.botaoEspecial} >C</button>
-      <button ref={botaoResultado} onClick={() => handleResultado("=") & tocarSomResultado()} className={styles.botaoEspecial} >=</button>
+      <button ref={botaoApagarTudo} onClick={() => handleLimpar("C") & tocarSomResultado()} className={botaoAtivo === "c" ? styles.botaoEspecialAtivo : styles.botaoEspecial} >C</button>
+      <button ref={botaoResultado} onClick={() => handleResultado("=") & tocarSomResultado()} className={botaoAtivo === "enter" ? styles.botaoEspecialAtivo : styles.botaoEspecial} >=</button>
 
     </div>
 

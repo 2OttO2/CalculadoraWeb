@@ -22,6 +22,7 @@ const clickSoundCock = new Audio(cockSound);
 const [mutado,setMutado] = useState(false);
 const botaoMute = useRef(null);
 const clickSoundMarcador = new Audio(marcadorSound);
+const botaoTema = useRef(null);
 
  
   useEffect(() => {
@@ -172,6 +173,9 @@ const clickSoundMarcador = new Audio(marcadorSound);
         case "H":
         setHistoricoAberto((prev) => !prev);
         tocarSomMarcador();
+        case "t":
+        case "T":
+        botaoTema.current.click();
         default:
           break;
 
@@ -190,7 +194,7 @@ const clickSoundMarcador = new Audio(marcadorSound);
     <div className={tema ? "containerBotaoTemaClaro" : "containerBotaoTemaEscuro"}>
       <p className ="lua">☀️</p>
 
-      <button className={tema ? "botaoTemaClaro" : "botaoTemaEscuro"}
+      <button ref={botaoTema} className={tema ? "botaoTemaClaro" : "botaoTemaEscuro"}
         onClick={() => {
           !tema ? tocarSomCock() : tocarSomOwl();
           setTema(!tema);

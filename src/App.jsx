@@ -173,9 +173,11 @@ const botaoTema = useRef(null);
         case "H":
         setHistoricoAberto((prev) => !prev);
         tocarSomMarcador();
+          break;
         case "t":
         case "T":
         botaoTema.current.click();
+          break;
         default:
           break;
 

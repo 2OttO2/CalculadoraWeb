@@ -23,6 +23,7 @@ const [mutado,setMutado] = useState(false);
 const botaoMute = useRef(null);
 const clickSoundMarcador = new Audio(marcadorSound);
 const botaoTema = useRef(null);
+const [botaoAtivo,setBotaoAtivo] = useState("");
 
  
   useEffect(() => {
@@ -168,6 +169,7 @@ const botaoTema = useRef(null);
         case "m":
         case "M":
           botaoMute.current.click();
+          setBotaoAtivo("M");
           break;
         case "h":
         case "H":
@@ -183,10 +185,15 @@ const botaoTema = useRef(null);
 
       }
     };
-
+     const handleKeyUp = () => {
+      setBotaoAtivo("");
+    };
+    
+    window.addEventListener("keyup",handleKeyUp);
     window.addEventListener("keydown",handleKeyDown);
 
       return() => {
+        window.removeEventListener("keyup", handleKeyUp);
         window.removeEventListener("keydown", handleKeyDown);
     };
   },[])
@@ -212,7 +219,7 @@ const botaoTema = useRef(null);
     </div>
 
     <div className="containerBotaoMute">
-        <button ref={botaoMute} className="botaoMute" onClick={() => setMutado(!mutado)}>
+        <button ref={botaoMute} className={botaoAtivo === "M" ? "botaoMuteAtivo" : "botaoMute"} onClick={() => setMutado(!mutado)}>
           {mutado ? "🔇" : "🔊"}
         </button>
     </div>

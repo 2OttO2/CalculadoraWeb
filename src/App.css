@@ -114,8 +114,10 @@ body,.botaoTema{
   position:relative;
   align-items:center;
   justify-content:center;
-  left:46%;
+  left:50%;
+  transform:translateX(-40%);
   top:15px;
+
   width:100px;
   height:42px;
   border-radius:50px;

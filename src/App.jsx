@@ -200,7 +200,10 @@ const botaoDeletarHistorico = useRef(null);
   },[])
 
   function limparHistorico (setHistorico){
-  setHistorico([]);
+    if(window.confirm("ARU RLY SUREEEEEEEE?")){
+      setHistorico([]);
+
+    }
 
   }
 
@@ -225,12 +228,17 @@ const botaoDeletarHistorico = useRef(null);
     </div>
 
     <div className="containerBotaoMute">
+
+        <button ref={botaoDeletarHistorico} className={"deletarHistorico"}
+        onClick={() => limparHistorico(setHistorico)}
+        >
+        DelHistorico
+        </button>
+
         <button ref={botaoMute} className={botaoAtivo === "M" ? "botaoMuteAtivo" : "botaoMute"} onClick={() => setMutado(!mutado)}>
           {mutado ? "🔇" : "🔊"}
         </button>
-        <button ref={botaoDeletarHistorico} className={"deletarHistorico"}
-        onClick={() => limparHistorico(setHistorico)}
-        >DelHistorico</button>
+
     </div>
 
     <div className="container">

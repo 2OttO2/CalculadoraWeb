@@ -235,7 +235,7 @@ const botaoDeletarHistorico = useRef(null);
         <button ref={botaoDeletarHistorico} className={"deletarHistorico"}
         onClick={() => limparHistorico(setHistorico)}
         >
-        DelHistorico
+        🗑️📜
         </button>
 
         <button ref={botaoMute} className={botaoAtivo === "M" ? "botaoMuteAtivo" : "botaoMute"} onClick={() => setMutado(!mutado)}>

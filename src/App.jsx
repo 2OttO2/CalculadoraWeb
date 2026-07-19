@@ -24,6 +24,7 @@ const botaoMute = useRef(null);
 const clickSoundMarcador = new Audio(marcadorSound);
 const botaoTema = useRef(null);
 const [botaoAtivo,setBotaoAtivo] = useState("");
+const botaoDeletarHistorico = useRef(null);
 
  
   useEffect(() => {
@@ -198,6 +199,11 @@ const [botaoAtivo,setBotaoAtivo] = useState("");
     };
   },[])
 
+  function limparHistorico (setHistorico){
+  setHistorico([]);
+
+  }
+
   return (
     <>
     <div className={tema ? "containerBotaoTemaClaro" : "containerBotaoTemaEscuro"}>
@@ -222,6 +228,9 @@ const [botaoAtivo,setBotaoAtivo] = useState("");
         <button ref={botaoMute} className={botaoAtivo === "M" ? "botaoMuteAtivo" : "botaoMute"} onClick={() => setMutado(!mutado)}>
           {mutado ? "🔇" : "🔊"}
         </button>
+        <button ref={botaoDeletarHistorico} className={"deletarHistorico"}
+        onClick={() => limparHistorico(setHistorico)}
+        >DelHistorico</button>
     </div>
 
     <div className="container">

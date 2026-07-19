@@ -31,7 +31,13 @@ const botaoDeletarHistorico = useRef(null);
       document.documentElement.className = tema ? "" : "temaEscuro";
     },[tema]);
   
+  function limparHistorico (setHistorico){
+    if(window.confirm("ARU RLY SUREEEEEEEE?")){
+      setHistorico([]);
 
+    }
+
+  }
   
   function tocarSomMarcador(){
     if(!mutado){
@@ -181,6 +187,9 @@ const botaoDeletarHistorico = useRef(null);
         case "T":
         botaoTema.current.click();
           break;
+        case "b":
+        case "B":
+        limparHistorico(setHistorico([]));
         default:
           break;
 
@@ -199,13 +208,7 @@ const botaoDeletarHistorico = useRef(null);
     };
   },[])
 
-  function limparHistorico (setHistorico){
-    if(window.confirm("ARU RLY SUREEEEEEEE?")){
-      setHistorico([]);
 
-    }
-
-  }
 
   return (
     <>
@@ -244,6 +247,7 @@ const botaoDeletarHistorico = useRef(null);
     <div className="container">
 
         <Historico
+
           historico={historico}
           historicoAberto={historicoAberto}
           setHistoricoAberto={setHistoricoAberto}
@@ -253,6 +257,7 @@ const botaoDeletarHistorico = useRef(null);
       <div className="calculadora">
 
         <Visor
+
         primeiroNumero={primeiroNumero}
         operador={operador}
         segundoNumero={segundoNumero}

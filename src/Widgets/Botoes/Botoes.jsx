@@ -32,113 +32,70 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
 
   const botaoResultado = useRef(null);
   
-   useEffect(() =>{
+  useEffect(() => {
     const handleKeyDown = (tecla) => {
-      
-      if(tecla.repeat) return;
-   
-      switch(tecla.key){
-        case "0":
-          botao0.current.click();
-          setBotaoAtivo("0");
-        break;
-        case "1":
-          botao1.current.click();
-          setBotaoAtivo("1");
-          break;
-        case "2":
-          botao2.current.click();
-           setBotaoAtivo("2");
-          break;
-        case "3":
-          botao3.current.click();
-          setBotaoAtivo("3");
-          break;
-        case "4":
-          botao4.current.click();
-          setBotaoAtivo("4");
-          break;
-        case "5":
-          botao5.current.click();
-          setBotaoAtivo("5");
-          break;
-        case "6":
-          botao6.current.click();
-          setBotaoAtivo("6");
-          break;
-        case "7":
-          botao7.current.click();
-          setBotaoAtivo("7");
-          break;
-        case "8":
-          botao8.current.click();
-          setBotaoAtivo("8");
-          break;
-        case "9":
-          botao9.current.click();
-          setBotaoAtivo("9");
-          break;
+      if (tecla.repeat) return;
 
-        case "x":
-        case "X":
-        case "*":
-          setBotaoAtivo("x");
-          botaoMultiplicacao.current.click();
-          break;
-        case "+":
-          setBotaoAtivo("+");
-          botaoAdicao.current.click();
-          break;
-        case "-":
-          setBotaoAtivo("-");
-          botaoSubtracao.current.click();
-          break;
-        case "%":
-          setBotaoAtivo("%");
-          botaoPorcentagem.current.click();
-          break;
-        case "/":
-          setBotaoAtivo("/");
-          botaoDivisao.current.click();
-          break;
-        
-        case ".":
-        case ",":
-          setBotaoAtivo(",");
-          botaoVirgula.current.click();
-          break;
+      const botoes = {
+       "0": botao0,
+       "1": botao1,
+       "2": botao2,
+       "3": botao3,
+       "4": botao4,
+       "5": botao5,
+       "6": botao6,
+       "7": botao7,
+       "8": botao8,
+       "9": botao9,
 
-        case "Enter":
-          setBotaoAtivo("enter");
-          botaoResultado.current.click();
-          break;
+       "x": botaoMultiplicacao,
+       "X": botaoMultiplicacao,
+       "*": botaoMultiplicacao,
 
-        case "Escape":
-        case "c":
-        case "C":
-          setBotaoAtivo("c");
-          botaoApagarTudo.current.click();
-          break;
+       "+": botaoAdicao,
+       "-": botaoSubtracao,
+       "/": botaoDivisao,
+       "%": botaoPorcentagem,
 
-        default:
-          break;
-      
-      }
-    };
-    const handleKeyUp = () => {
-      setBotaoAtivo("");
+       ".": botaoVirgula,
+       ",": botaoVirgula,
+
+       "Enter": botaoResultado,
+
+       "Escape": botaoApagarTudo,
+       "c": botaoApagarTudo,
+       "C": botaoApagarTudo,
+
     };
 
-    window.addEventListener("keyup", handleKeyUp);
-    window.addEventListener("keydown",handleKeyDown);
+     const teclaVisual = {
+       "*": "x",
+       "X": "x",
+       "x": "x",
+       ".": ",",
+       "Enter": "enter",
+       "Escape": "c",
+       "C": "c",
+     };
 
-      return() => {
+    if (botoes[tecla.key]) {
+      botoes[tecla.key].current.click();
+      setBotaoAtivo(teclaVisual[tecla.key] || tecla.key);
+    }
+  };
 
-        window.removeEventListener("keyup", handleKeyUp);
-        window.removeEventListener("keydown", handleKeyDown);
-    };
-  },[])
+  const handleKeyUp = () => {
+    setBotaoAtivo("");
+  };
 
+  window.addEventListener("keydown", handleKeyDown);
+  window.addEventListener("keyup", handleKeyUp);
+
+  return () => {
+    window.removeEventListener("keydown", handleKeyDown);
+    window.removeEventListener("keyup", handleKeyUp);
+  };
+}, []); 
 
   function tocarSomBotao(){
       if(!mutado){
@@ -160,7 +117,9 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
   return(
 
     <>
+
     <section className={styles.containerPai}>
+
     <section className={styles.containerFilho}>
 
     <div className={styles.primeiraFileira}>
@@ -205,9 +164,9 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
       <button ref={botaoResultado} onClick={() => handleResultado("=") & tocarSomResultado()} className={botaoAtivo === "enter" ? styles.botaoEspecialAtivo : styles.botaoEspecial} >=</button>
 
     </div>
-
   
     </section>
+
     </section>
 
     </>

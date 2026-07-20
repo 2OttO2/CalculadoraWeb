@@ -30,14 +30,34 @@
 }
 .aberto{
   transform:translateX(10px);
-  transition:opacity 0.35s ease, transform 1s ease;
+  animation: aparecer 1.5s forwards;
+  z-index:-1;
 
 }
+@keyframes aparecer{
+  from{
+    opacity:0;
+  }
+  to{
+    opacity:1;
+  }
+}
+
 .fechado{
   transform:translateX(250px);
-  transition:opacity 0.35s ease, transform 1s ease;
-  opacity:0;
+  animation:desaparecer 0.4s forwards;
+  z-index:-1;
+  
 }
+@keyframes desaparecer {
+  from{
+    opacity:1;
+  }
+  to{
+    opacity:0;
+  }
+}
+
 .botaoSlideAberto{
   transform:translateX(20px);
   transition: transform 1s ease;

@@ -41,7 +41,7 @@ const botaoDeletarHistorico = useRef(null);
   
   function tocarSomMarcador(){
     if(!mutado){
-    clickSoundMarcador.curreentTime = 0;
+    clickSoundMarcador.currentTime = 0;
     clickSoundMarcador.play();
     }else{
       return;
@@ -189,7 +189,7 @@ const botaoDeletarHistorico = useRef(null);
           break;
         case "b":
         case "B":
-        limparHistorico(setHistorico([]));
+        limparHistorico(setHistorico);
         default:
           break;
 
@@ -267,18 +267,6 @@ const botaoDeletarHistorico = useRef(null);
 
         />
         <Botoes
-
-          primeiroNumero={primeiroNumero}
-          setPrimeiroNumero={setPrimeiroNumero}
-
-          operador={operador}
-          setOperador={setOperador}
-
-          segundoNumero={segundoNumero}
-          setSegundoNumero={setSegundoNumero}
-
-          resultado={resultado}
-          setResultado={setResultado}
 
           handleNumero={handleNumero}
           handleOperador={handleOperador}

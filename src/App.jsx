@@ -41,6 +41,19 @@ const botaoDeletarHistorico = useRef(null);
   },[historico]);
 
   useEffect(() => {
+    localStorage.setItem("tema", JSON.stringify(tema));
+  },[tema]);
+
+  useEffect(() => {
+      const temaSalvo = JSON.parse(localStorage.getItem("tema"));
+
+      if(temaSalvo !== null){
+      setTema(temaSalvo);
+    }
+  },[]);
+
+
+  useEffect(() => {
       document.documentElement.className = tema ? "" : "temaEscuro";
     },[tema]);
   

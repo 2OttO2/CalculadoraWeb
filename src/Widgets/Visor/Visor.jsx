@@ -6,7 +6,7 @@ import {  useState,useEffect,useRef } from "react"
 function Visor({ primeiroNumero, operador, segundoNumero, resultado, apagarUltimo, mutado}){
 
   
-  const clickSoundDeletar = new Audio(deletarSound);
+  const clickSoundDeletar = useRef(new Audio(deletarSound));
   const [botaoAtivo,setBotaoAtivo] = useState("");
 
     function tocarSomDeletar(){

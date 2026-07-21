@@ -17,11 +17,13 @@ const [resultado,setResultado] = useState("");
 const [historico,setHistorico] = useState([]);
 const [historicoAberto,setHistoricoAberto] = useState(true);
 const [tema,setTema] = useState(false);
-const clickSoundOwl = new Audio(owlSound);
-const clickSoundCock = new Audio(cockSound);
+
+const clickSoundOwl = useRef(new Audio(owlSound));
+const clickSoundCock = useRef(new Audio(cockSound));
+const clickSoundMarcador = useRef(new Audio(marcadorSound));
+
 const [mutado,setMutado] = useState(false);
 const botaoMute = useRef(null);
-const clickSoundMarcador = new Audio(marcadorSound);
 const botaoTema = useRef(null);
 const [botaoAtivo,setBotaoAtivo] = useState("");
 const botaoDeletarHistorico = useRef(null);
@@ -39,9 +41,6 @@ const botaoDeletarHistorico = useRef(null);
     localStorage.setItem("historico",JSON.stringify(historico));
   },[historico]);
 
-  useEffect(() => {
-    localStorage.setItem("tema", JSON.stringify(tema));
-  },[tema]);
 
   useEffect(() => {
       const temaSalvo = JSON.parse(localStorage.getItem("tema"));
@@ -53,7 +52,7 @@ const botaoDeletarHistorico = useRef(null);
 
   useEffect(() => {
     localStorage.setItem("tema",JSON.stringify(tema));
-  },[]);
+  },[tema]);
 
   useEffect(() => {
     const muteSalvo = localStorage.getItem("mutado");
@@ -65,7 +64,7 @@ const botaoDeletarHistorico = useRef(null);
   
   useEffect(() => {
     localStorage.setItem("mutado",JSON.stringify(mutado));
-  },[]);
+  },[mutado]);
 
 
   useEffect(() => {

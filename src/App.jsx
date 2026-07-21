@@ -26,7 +26,6 @@ const botaoTema = useRef(null);
 const [botaoAtivo,setBotaoAtivo] = useState("");
 const botaoDeletarHistorico = useRef(null);
 
- 
   useEffect(() => {
     const historicoSalvo = localStorage.getItem("historico");
 
@@ -50,6 +49,22 @@ const botaoDeletarHistorico = useRef(null);
       if(temaSalvo !== null){
       setTema(temaSalvo);
     }
+  },[]);
+
+  useEffect(() => {
+    localStorage.setItem("tema",JSON.stringify(tema));
+  },[]);
+
+  useEffect(() => {
+    const muteSalvo = localStorage.getItem("mutado");
+
+    if(muteSalvo !== null){
+      setMutado(JSON.parse(muteSalvo));
+    }
+  },[]);
+  
+  useEffect(() => {
+    localStorage.setItem("mutado",JSON.stringify(mutado));
   },[]);
 
 

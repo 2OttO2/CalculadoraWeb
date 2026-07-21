@@ -11,8 +11,8 @@ function Visor({ primeiroNumero, operador, segundoNumero, resultado, apagarUltim
 
     function tocarSomDeletar(){
     if(!mutado){
-    clickSoundDeletar.curreentTime = 0;
-    clickSoundDeletar.cloneNode().play();
+    clickSoundDeletar.current.curreentTime = 0;
+    clickSoundDeletar.current.play();
     }else{
       return;
     }

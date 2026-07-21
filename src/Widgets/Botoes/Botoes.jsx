@@ -6,8 +6,9 @@ import resultadoSound from "../../sounds/resultado.mp3";
 function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, handleResultado, mutado}){
  
   //resolver animation dos botao no input do teclado
-  const clickSoundBotao = new Audio(botaoSound);
-  const clickSoundResultado = new Audio(resultadoSound);
+  const clickSoundBotao = useRef(new Audio(botaoSound));
+  const clickSoundResultado = useRef(new Audio(resultadoSound));
+
   const [botaoAtivo,setBotaoAtivo] = useState("");
 
   const botao0  = useRef(null);
@@ -99,16 +100,16 @@ function Botoes( { handleNumero, handleOperador, handleLimpar, handleVirgula, ha
 
   function tocarSomBotao(){
       if(!mutado){
-    clickSoundBotao.currentTime = 0;
-    clickSoundBotao.play();
+    clickSoundBotao.current.currentTime = 0;
+    clickSoundBotao.current.play();
     }else{
       return;
     }
   }
   function tocarSomResultado(){
     if(!mutado){
-    clickSoundResultado.currentTime = 0;
-    clickSoundResultado.play();
+    clickSoundResultado.current.currentTime = 0;
+    clickSoundResultado.current.play();
     }else{
       return;
     }

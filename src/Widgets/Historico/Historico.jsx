@@ -1,14 +1,15 @@
 import styles from "./Historico.module.css";
 import marcadorSound from "../../sounds/Marcador.mp3";
+import { useRef } from "react";
 
 function Historico({ historico, historicoAberto, setHistoricoAberto, mutado }) {
 
-  const clickSoundMarcador = new Audio(marcadorSound);
+  const clickSoundMarcador = useRef(new Audio(marcadorSound));
 
     function tocarSomMarcador(){
     if(!mutado){
-    clickSoundMarcador.curreentTime = 0;
-    clickSoundMarcador.play();
+    clickSoundMarcador.currrent.curreentTime = 0;
+    clickSoundMarcador.current.play();
     }else{
       return;
     }

@@ -81,7 +81,7 @@ const botaoDeletarHistorico = useRef(null);
   
   function tocarSomMarcador(){
     if(!mutado){
-    clickSoundMarcador.currentTime = 0;
+    clickSoundMarcador.current.currentTime = 0;
     clickSoundMarcador.play();
     }else{
       return;
@@ -90,8 +90,8 @@ const botaoDeletarHistorico = useRef(null);
 
   function tocarSomOwl(){
     if(!mutado){
-    clickSoundOwl.currentTime = 0;
-    clickSoundOwl.cloneNode().play();
+    clickSoundOwl.current.currentTime = 0;
+    clickSoundOwl.current.play();
     }else{
       return;
     }
@@ -100,7 +100,7 @@ const botaoDeletarHistorico = useRef(null);
    function tocarSomCock(){
     if(!mutado){
     clickSoundCock.currentTime = 0;
-    clickSoundCock.cloneNode().play();
+    clickSoundCock.current.play();
     }else{
       return;
     }

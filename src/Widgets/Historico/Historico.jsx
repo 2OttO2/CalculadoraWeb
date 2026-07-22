@@ -8,7 +8,7 @@ function Historico({ historico, historicoAberto, setHistoricoAberto, mutado }) {
 
     function tocarSomMarcador(){
     if(!mutado){
-    clickSoundMarcador.currrent.curreentTime = 0;
+    clickSoundMarcador.current.curreentTime = 0;
     clickSoundMarcador.current.play();
     }else{
       return;

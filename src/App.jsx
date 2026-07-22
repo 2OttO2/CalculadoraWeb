@@ -82,7 +82,7 @@ const botaoDeletarHistorico = useRef(null);
   function tocarSomMarcador(){
     if(!mutado){
     clickSoundMarcador.current.currentTime = 0;
-    clickSoundMarcador.play();
+    clickSoundMarcador.current.play();
     }else{
       return;
     }
@@ -99,7 +99,7 @@ const botaoDeletarHistorico = useRef(null);
 
    function tocarSomCock(){
     if(!mutado){
-    clickSoundCock.currentTime = 0;
+    clickSoundCock.current.currentTime = 0;
     clickSoundCock.current.play();
     }else{
       return;
@@ -220,8 +220,10 @@ const botaoDeletarHistorico = useRef(null);
           break;
         case "h":
         case "H":
-        setHistoricoAberto((prev) => !prev);
-        tocarSomMarcador();
+        setHistoricoAberto((prev) => !prev)
+          if(!mutado){
+            tocarSomMarcador();
+          }
           break;
         case "t":
         case "T":
@@ -246,7 +248,7 @@ const botaoDeletarHistorico = useRef(null);
         window.removeEventListener("keyup", handleKeyUp);
         window.removeEventListener("keydown", handleKeyDown);
     };
-  },[])
+  },[mutado])
 
 
 
